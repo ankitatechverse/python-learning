@@ -1,6 +1,16 @@
+# ---------------------------
+# PYTHON INPUT CHEAT SHEET
+# ---------------------------
+
+# --- Rules for Taking Input ---
 """
-Examples of taking user input in Python with type casting and validation.
+1. Whatever the user types is ALWAYS a string.
+2. Even if you type 25, Python sees it as "25" (string).
+3. If you need a number, always cast it using int() or float().
+4. Use .strip() and .lower() when handling text inputs to avoid errors.
 """
+
+"""Examples of taking user input in Python with type casting and validation."""
 
 # --- 1. Simple String Input ---
 input_str = input("Enter a Name: ")
@@ -47,10 +57,4 @@ except ValueError:
     print("Invalid number. Please try again.")
 
 
-# --- Rules for Taking Input ---
-"""
-1. Whatever the user types is ALWAYS a string.
-2. Even if you type 25, Python sees it as "25" (string).
-3. If you need a number, always cast it using int() or float().
-4. Use .strip() and .lower() when handling text inputs to avoid errors.
-"""
+

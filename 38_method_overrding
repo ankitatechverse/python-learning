@@ -1,0 +1,74 @@
+# --------------------------
+# Method Overriding
+# --------------------------
+
+"""
+Overriding = Redefining a method from a parent class in a child class.
+When you call that method on a child object, the child version runs, not the parent’s.
+"""
+
+#Rules:-
+"""
+1. The child version overrides the parent when called on a child instance.
+2. Use super() to call the parent version when needed.
+3. Same method name in parent & child.
+"""
+
+# Basic Example
+class Car:
+    def drive(self):
+        print("Car is driving...")
+
+class Tesla(Car):
+    def drive(self):  # Overriding
+        print("Tesla is driving silently on electricity.")
+
+c = Car()
+t = Tesla()
+
+c.drive()   # Car is driving...
+t.drive()   # Tesla is driving silently on electricity.
+
+
+# Using super() in Overridden Methods
+class Car:
+    def drive(self):
+        print("Car is driving...")
+
+class Tesla(Car):
+    def drive(self):
+        super().drive()  # Call parent version first
+        print("Tesla adds autopilot mode.")
+
+t = Tesla()
+t.drive()
+
+# Constructor Overriding
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+class Student(Person):
+    def __init__(self, name, marks):
+        super().__init__(name)  # Call parent constructor
+        self.marks = marks
+
+s = Student("Alice", 90)
+print(s.name, s.marks)
+
+# Real Example (Polymorphism)
+class Animal:
+    def speak(self):
+        print("This animal makes a sound.")
+
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks.")
+
+class Cat(Animal):
+    def speak(self):
+        print("Cat meows.")
+
+animals = [Dog(), Cat(), Animal()]
+for a in animals:
+    a.speak()

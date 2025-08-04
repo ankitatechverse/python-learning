@@ -1,0 +1,71 @@
+# --------------------------
+# Regular Expression
+# --------------------------
+
+"""
+A pattern used to search, match, and manipulate strings.
+It’s like a search on steroids: instead of just "apple", you can search for “all words starting with a and ending with e”.
+"""
+
+# Rules:
+"""
+Always use raw strings (r"pattern") to avoid Python escaping issues.
+Use () for groups to extract specific parts.
+Test your patterns on regex101.com — super useful.
+"""
+
+# Common Regex Patterns:-
+"""
+. → Any character (except newline)
+^ → Start of string
+$ → End of string
+\d → Digit (0-9)
+\w → Word character (letters, numbers, _)
+\s → Whitespace
++ → One or more
+* → Zero or more
+? → Optional (0 or 1)
+{m,n} → Between m and n times
+[] → Character set [aeiou]
+| → OR (e.g., cat|dog)
+() → Grouping
+"""
+
+# 1.Common Functions in re:-
+# 1. re.search() → Finds the first match anywhere
+import re
+result = re.search(r"cat", "I have a cat")
+print(result.group())  # "cat"
+
+# 2. re.match() → Checks only at the start
+result = re.match(r"cat", "cat is cat")
+print(result.group())  # "cat"
+
+# 3. re.findall() → Finds all matches (list)
+result = re.findall(r"\d+", "I have 2 cats and 3 dogs")
+print(result)  # ['2', '3']
+
+# 4. re.sub() → Replace
+result = re.sub(r"cat", "dog", "I love cat")
+print(result)  # "I love dog"
+
+# 5. re.split() → Split by pattern
+result = re.split(r"\s+", "I  love   Python")
+print(result)  # ['I', 'love', 'Python']
+
+# 6. Find all emails
+text = "My emails: test@mail.com and hello@abc.org"
+emails = re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
+print(emails)  # ['test@mail.com', 'hello@abc.org']
+
+# 7. Extract digits
+numbers = re.findall(r"\d+", "Order 123, cost 456")
+print(numbers)  # ['123', '456']
+
+
+# m = re.search('(?<=abc)def', 'abcdef')
+m = re.search(r'(?<=-)\w+', 'spam-egg')
+print(m.group(0))
+
+
+
